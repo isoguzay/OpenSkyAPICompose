@@ -1,4 +1,4 @@
-package com.isoguzay.openskyapicompose.theme
+package com.isoguzay.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

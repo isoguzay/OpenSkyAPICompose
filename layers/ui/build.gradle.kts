@@ -30,16 +30,19 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.Compose.COMPOSE_VERSION
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
 
 dependencies {
-
     ACCOMPANIST
     BASE
     COMPOSE
+    KOTLIN_STANDARD_LIBRARY
     MATERIAL_DESIGN
 
     COMPOSE_UI_TEST

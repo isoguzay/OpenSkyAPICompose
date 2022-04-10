@@ -2,6 +2,7 @@ plugins {
     id(ANDROID_LIBRARY)
     id(KOTLIN_ANDROID)
     id(KOTLIN_KAPT)
+    id(DAGGER_HILT_ANDROID_PLUGIN)
 }
 
 android.buildFeatures.compose = true
@@ -36,12 +37,20 @@ android {
 }
 
 dependencies {
+    LAYERS_DOMAIN
+    LAYERS_UI
 
     ACCOMPANIST
     BASE
     COMPOSE
+    DAGGER_HILT
+    KOTLIN_STANDARD_LIBRARY
     MATERIAL_DESIGN
 
     COMPOSE_UI_TEST
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }
