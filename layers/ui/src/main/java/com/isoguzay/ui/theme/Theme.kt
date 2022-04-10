@@ -1,4 +1,4 @@
-package com.isoguzay.openskyapicompose.theme
+package com.isoguzay.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
