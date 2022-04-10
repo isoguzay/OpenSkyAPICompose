@@ -53,10 +53,19 @@ android {
 }
 
 dependencies {
+    FEATURE_HOME
+    FEATURE_SPLASH
+    LAYERS_UI
+
     BASE
     COMPOSE
     DAGGER_HILT
+    KOTLIN_STANDARD_LIBRARY
 
     COMPOSE_UI_TEST
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }

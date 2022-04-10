@@ -2,6 +2,8 @@ plugins {
     id(ANDROID_LIBRARY)
     id(KOTLIN_ANDROID)
     id(KOTLIN_KAPT)
+    id(KOTLIN_PARCELIZE)
+    id(DAGGER_HILT_ANDROID_PLUGIN)
 }
 
 android {
@@ -35,6 +37,14 @@ android {
 
 dependencies {
     BASE
+    DAGGER_HILT
+    KOTLIN_STANDARD_LIBRARY
+    NETWORK
+    ROOM
 
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }

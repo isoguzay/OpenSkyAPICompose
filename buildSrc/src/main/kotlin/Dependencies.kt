@@ -4,10 +4,10 @@ import org.gradle.kotlin.dsl.project
 const val ANDROID_APPLICATION = "com.android.application"
 const val ANDROID_LIBRARY = "com.android.library"
 const val DAGGER_HILT_ANDROID_PLUGIN = "dagger.hilt.android.plugin"
-const val COMMON_MODULE_PLUGIN = "common-module-plugin"
 const val KOTLIN = "org.jetbrains.kotlin.android"
 const val KOTLIN_KAPT = "kotlin-kapt"
 const val KOTLIN_ANDROID = "kotlin-android"
+const val KOTLIN_PARCELIZE = "kotlin-parcelize"
 
 object Modules {
     object Layers {
@@ -52,6 +52,9 @@ object Libraries {
     object Android {
         const val MATERIAL_DESIGN =
             "com.google.android.material:material:${Versions.Android.MATERIAL_DESIGN_VERSION}"
+        const val DAGGER = "com.google.dagger:dagger:${Versions.Android.DAGGER}"
+        const val DAGGER_PROCESSOR = "com.google.dagger:dagger-compiler:${Versions.Android.DAGGER}"
+        const val GSON = "com.google.code.gson:gson:${Versions.Android.GSON}"
     }
 
     object Coil {
@@ -117,8 +120,14 @@ object Libraries {
         }
     }
 
-    object Timber {
-        const val TIMBER = "com.jakewharton.timber:timber:${Versions.Timber.TIMBER_VERSION}"
+    object Square {
+        const val GSON_CONVERTER =
+            "com.squareup.retrofit2:converter-gson:${Versions.Square.RETROFIT}"
+        const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.Square.OKHTTP}"
+        const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Square.RETROFIT}"
+        const val RETROFIT_INTERCEPTOR =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.Square.OKHTTP}"
+        const val TIMBER = "com.jakewharton.timber:timber:${Versions.Square.TIMBER_VERSION}"
     }
 
     object Test {
@@ -156,7 +165,7 @@ private fun DependencyHandler.base() {
     implementation(Libraries.AndroidX.LIFECYCLE_RUNTIME_KTX)
     implementation(Libraries.AndroidX.LIFECYCLE_VIEWMODEL_KTX)
     implementation(Libraries.AndroidX.SPLASH_API)
-    implementation(Libraries.Timber.TIMBER)
+    implementation(Libraries.Square.TIMBER)
 }
 
 private fun DependencyHandler.compose() {
@@ -183,6 +192,20 @@ private fun DependencyHandler.hilt() {
     kapt(Libraries.Hilt.HILT_ANDROID_COMPILER)
 }
 
+private fun DependencyHandler.room() {
+    implementation(Libraries.AndroidX.ROOM)
+    implementation(Libraries.AndroidX.ROOM_KTX)
+    kapt(Libraries.AndroidX.ROOM_COMPILER)
+}
+
+private fun DependencyHandler.network() {
+    implementation(Libraries.Android.GSON)
+    implementation(Libraries.Square.GSON_CONVERTER)
+    implementation(Libraries.Square.RETROFIT)
+    implementation(Libraries.Square.RETROFIT_INTERCEPTOR)
+    implementation(Libraries.Square.OKHTTP)
+}
+
 
 // -- DEPENDENCIES
 val DependencyHandler.ACCOMPANIST
@@ -202,6 +225,12 @@ val DependencyHandler.KOTLIN_STANDARD_LIBRARY
 
 val DependencyHandler.MATERIAL_DESIGN
     get() = implementation(Libraries.Android.MATERIAL_DESIGN)
+
+val DependencyHandler.NETWORK
+    get() = network()
+
+val DependencyHandler.ROOM
+    get() = room()
 
 val DependencyHandler.TEST
     get() = test()

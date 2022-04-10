@@ -10,6 +10,8 @@ object Versions {
 
     object Android {
         const val MATERIAL_DESIGN_VERSION = "1.5.0"
+        const val GSON = "2.8.0"
+        const val DAGGER = "2.35.1"
     }
 
     object AndroidX {
@@ -41,10 +43,6 @@ object Versions {
         const val HILT_VERSION = "2.41"
     }
 
-    object Timber {
-        const val TIMBER_VERSION = "5.0.1"
-    }
-
     object Test {
         const val JUNIT_VERSION = "4.13.2"
         const val MOCKK_VERSION = "1.10.6"
@@ -55,6 +53,12 @@ object Versions {
             const val CORE_VERSION = "1.0.0"
             const val JUNIT_VERSION = "1.1.1"
         }
+    }
+
+    object Square {
+        const val TIMBER_VERSION = "5.0.1"
+        const val OKHTTP = "3.9.0"
+        const val RETROFIT = "2.9.0"
     }
 
 }
