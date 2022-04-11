@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="modal_bottom_sheet_lazy_column_vertical_padding">4dp</dimen>
+    <dimen name="modal_bottom_sheet_card_vertical_padding">4dp</dimen>
+    <dimen name="modal_bottom_sheet_card_horizontal_padding">8dp</dimen>
+    <dimen name="modal_bottom_sheet_row_padding">12dp</dimen>
+    <dimen name="modal_bottom_sheet_spacer">16dp</dimen>
+    <dimen name="modal_bottom_sheet_column_padding">16dp</dimen>
+    <dimen name="button_show_flights_height">55dp</dimen>
+    <dimen name="button_show_flights_height_top_padding">16dp</dimen>
+    <dimen name="button_show_flights_text_size">16sp</dimen>
+</resources>

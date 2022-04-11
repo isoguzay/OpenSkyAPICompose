@@ -2,9 +2,9 @@ plugins {
     id(ANDROID_LIBRARY)
     id(KOTLIN_ANDROID)
     id(KOTLIN_KAPT)
+    id(DAGGER_HILT_ANDROID_PLUGIN)
+    id(GOOGLE_PLAY_SERVICES)
 }
-
-android.buildFeatures.compose = true
 
 android {
     compileSdk = 31
@@ -33,14 +33,31 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.Compose.COMPOSE_VERSION
+    }
 }
 
 dependencies {
+    LAYERS_DOMAIN
+    LAYERS_UI
+
     ACCOMPANIST
     BASE
     COMPOSE
+    DAGGER_HILT
+    GOOGLE_MAPS
+    KOTLIN_STANDARD_LIBRARY
     MATERIAL_DESIGN
 
     COMPOSE_UI_TEST
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }

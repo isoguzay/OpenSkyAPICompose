@@ -4,10 +4,11 @@ import org.gradle.kotlin.dsl.project
 const val ANDROID_APPLICATION = "com.android.application"
 const val ANDROID_LIBRARY = "com.android.library"
 const val DAGGER_HILT_ANDROID_PLUGIN = "dagger.hilt.android.plugin"
-const val COMMON_MODULE_PLUGIN = "common-module-plugin"
 const val KOTLIN = "org.jetbrains.kotlin.android"
 const val KOTLIN_KAPT = "kotlin-kapt"
 const val KOTLIN_ANDROID = "kotlin-android"
+const val KOTLIN_PARCELIZE = "kotlin-parcelize"
+const val GOOGLE_PLAY_SERVICES = "com.google.gms.google-services"
 
 object Modules {
     object Layers {
@@ -52,10 +53,25 @@ object Libraries {
     object Android {
         const val MATERIAL_DESIGN =
             "com.google.android.material:material:${Versions.Android.MATERIAL_DESIGN_VERSION}"
+        const val DAGGER = "com.google.dagger:dagger:${Versions.Android.DAGGER}"
+        const val DAGGER_PROCESSOR = "com.google.dagger:dagger-compiler:${Versions.Android.DAGGER}"
+        const val GSON = "com.google.code.gson:gson:${Versions.Android.GSON}"
     }
 
     object Coil {
         const val COIL_COMPOSE = "io.coil-kt:coil-compose:${Versions.Coil.COIL_VERSION}"
+    }
+
+    object Firebase {
+        const val FIREBASE = "com.google.firebase:firebase-bom:${Versions.Firebase.FIREBASE}"
+        const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx"
+    }
+
+    object GoogleMaps {
+        const val GOOGLE_MAPS_COMPOSE =
+            "com.google.maps.android:maps-compose:${Versions.GoogleMaps.GOOGLE_MAPS_COMPOSE}"
+        const val GOOGLE_MAPS_SERVICES =
+            "com.google.android.gms:play-services-maps:${Versions.GoogleMaps.GOOGLE_MAPS_SERVICES}"
     }
 
     object Compose {
@@ -117,8 +133,14 @@ object Libraries {
         }
     }
 
-    object Timber {
-        const val TIMBER = "com.jakewharton.timber:timber:${Versions.Timber.TIMBER_VERSION}"
+    object Square {
+        const val GSON_CONVERTER =
+            "com.squareup.retrofit2:converter-gson:${Versions.Square.RETROFIT}"
+        const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.Square.OKHTTP}"
+        const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.Square.RETROFIT}"
+        const val RETROFIT_INTERCEPTOR =
+            "com.squareup.okhttp3:logging-interceptor:${Versions.Square.OKHTTP}"
+        const val TIMBER = "com.jakewharton.timber:timber:${Versions.Square.TIMBER_VERSION}"
     }
 
     object Test {
@@ -156,7 +178,7 @@ private fun DependencyHandler.base() {
     implementation(Libraries.AndroidX.LIFECYCLE_RUNTIME_KTX)
     implementation(Libraries.AndroidX.LIFECYCLE_VIEWMODEL_KTX)
     implementation(Libraries.AndroidX.SPLASH_API)
-    implementation(Libraries.Timber.TIMBER)
+    implementation(Libraries.Square.TIMBER)
 }
 
 private fun DependencyHandler.compose() {
@@ -178,9 +200,33 @@ private fun DependencyHandler.compose() {
     implementation(Libraries.Compose.VIEWMODEL)
 }
 
+private fun DependencyHandler.firebase() {
+    implementation(Libraries.Firebase.FIREBASE)
+    implementation(Libraries.Firebase.FIREBASE_ANALYTICS)
+}
+
+private fun DependencyHandler.googleMaps() {
+    implementation(Libraries.GoogleMaps.GOOGLE_MAPS_COMPOSE)
+    implementation(Libraries.GoogleMaps.GOOGLE_MAPS_SERVICES)
+}
+
 private fun DependencyHandler.hilt() {
     implementation(Libraries.Hilt.HILT_ANDROID)
     kapt(Libraries.Hilt.HILT_ANDROID_COMPILER)
+}
+
+private fun DependencyHandler.room() {
+    implementation(Libraries.AndroidX.ROOM)
+    implementation(Libraries.AndroidX.ROOM_KTX)
+    kapt(Libraries.AndroidX.ROOM_COMPILER)
+}
+
+private fun DependencyHandler.network() {
+    implementation(Libraries.Android.GSON)
+    implementation(Libraries.Square.GSON_CONVERTER)
+    implementation(Libraries.Square.RETROFIT)
+    implementation(Libraries.Square.RETROFIT_INTERCEPTOR)
+    implementation(Libraries.Square.OKHTTP)
 }
 
 
@@ -197,11 +243,23 @@ val DependencyHandler.COMPOSE
 val DependencyHandler.DAGGER_HILT
     get() = hilt()
 
+val DependencyHandler.FIREBASE
+    get() = firebase()
+
+val DependencyHandler.GOOGLE_MAPS
+    get() = googleMaps()
+
 val DependencyHandler.KOTLIN_STANDARD_LIBRARY
     get() = implementation(Libraries.Kotlin.STANDARD_LIB)
 
 val DependencyHandler.MATERIAL_DESIGN
     get() = implementation(Libraries.Android.MATERIAL_DESIGN)
+
+val DependencyHandler.NETWORK
+    get() = network()
+
+val DependencyHandler.ROOM
+    get() = room()
 
 val DependencyHandler.TEST
     get() = test()
@@ -282,6 +340,10 @@ val DependencyHandler.LAYERS_UI
 
 private fun DependencyHandler.implementation(depName: Any) {
     add("implementation", depName)
+}
+
+private fun DependencyHandler.implementationPlatform(depName: Any) {
+    add("implementation platform", depName)
 }
 
 private fun DependencyHandler.testImplementation(depName: Any) {

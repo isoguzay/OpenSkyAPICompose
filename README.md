@@ -4,9 +4,6 @@
 
 A demonstration modern Android development project with Jetpack(Compose, Room, ViewModel, Navigation), Hilt and based on MVVM by using Open Sky API.
 
-## Introduction
-
-
 ## What You Will Need
 
 **Hardware Requirements**
@@ -15,29 +12,34 @@ A demonstration modern Android development project with Jetpack(Compose, Room, V
 
 **Software Requirements**
 - Android SDK package
-- Android Studio 3.X
-
-## Getting Started
-
-
-## Using the Application
-
+- Android Studio 4.X
 
 ## Screenshots
 
+<p align="center">
+  <img src="docs/1.png" width="32%"/>
+  <img src="docs/2.png" width="32%"/>
+  <img src="docs/3.png" width="32%"/>
+</p>
+
+<p align="center">
+  <img src="docs/4.png" width="32%"/>
+  <img src="docs/5.png" width="32%"/>
+  <img src="docs/6.png" width="32%"/>
+</p>
 
 ## Project Structure
 
-My Targets is designed with MVVM design pattern.
+OpenSky API - Android Jetpack Compose is designed with MVVM design pattern.
 
 ## Libraries
 
-- Compose
-- Room
+- Jetpack Compose
+- Jetpack Navigation
 - Coroutines
-- Navigation
 - Hilt
+- Retrofit
 
 ## Contributors
 
-- İsmail Oğuzhan Ay
+- Ismail Oguzhan Ay

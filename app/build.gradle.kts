@@ -3,6 +3,7 @@ plugins {
     id(KOTLIN)
     id(KOTLIN_KAPT)
     id(DAGGER_HILT_ANDROID_PLUGIN)
+    id(GOOGLE_PLAY_SERVICES)
 }
 
 android {
@@ -53,10 +54,20 @@ android {
 }
 
 dependencies {
+    FEATURE_HOME
+    FEATURE_SPLASH
+    LAYERS_UI
+
     BASE
     COMPOSE
     DAGGER_HILT
+    GOOGLE_MAPS
+    KOTLIN_STANDARD_LIBRARY
 
     COMPOSE_UI_TEST
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -2,6 +2,7 @@ plugins {
     id(ANDROID_LIBRARY)
     id(KOTLIN_ANDROID)
     id(KOTLIN_KAPT)
+    id(DAGGER_HILT_ANDROID_PLUGIN)
 }
 
 android {
@@ -38,6 +39,12 @@ dependencies {
     LAYERS_DATA
 
     BASE
+    DAGGER_HILT
+    KOTLIN_STANDARD_LIBRARY
 
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }
