@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface OpenSkyApiService {
 
-    @GET("all")
+    @GET("states/all")
     suspend fun getFlights(
         @Query("lamin") lamin: String,
         @Query("lomin") lomin: String,

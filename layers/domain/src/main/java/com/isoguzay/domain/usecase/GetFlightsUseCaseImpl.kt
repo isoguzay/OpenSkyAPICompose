@@ -6,7 +6,8 @@ import com.isoguzay.data.remote.response.FlightResponseModel
 import com.isoguzay.data.remote.service.NetworkResult
 import javax.inject.Inject
 
-class GetFlightsUseCaseImpl @Inject constructor(private val repository: FlightsRepository) : GetFlightsUseCase {
+class GetFlightsUseCaseImpl @Inject constructor(private val repository: FlightsRepository) :
+    GetFlightsUseCase {
 
     override suspend operator fun invoke(requestModel: CoordinatesRequestModel): NetworkResult<FlightResponseModel> =
         repository.getFlights(requestModel)

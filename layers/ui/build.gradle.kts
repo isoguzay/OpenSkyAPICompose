@@ -4,8 +4,6 @@ plugins {
     id(KOTLIN_KAPT)
 }
 
-android.buildFeatures.compose = true
-
 android {
     compileSdk = 31
 
@@ -26,15 +24,20 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.COMPOSE_VERSION
-    }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.Compose.COMPOSE_VERSION
     }
 }
 
@@ -43,8 +46,13 @@ dependencies {
     BASE
     COMPOSE
     KOTLIN_STANDARD_LIBRARY
+    GOOGLE_MAPS
     MATERIAL_DESIGN
 
     COMPOSE_UI_TEST
     TEST
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -3,6 +3,7 @@ plugins {
     id(KOTLIN)
     id(KOTLIN_KAPT)
     id(DAGGER_HILT_ANDROID_PLUGIN)
+    id(GOOGLE_PLAY_SERVICES)
 }
 
 android {
@@ -60,6 +61,7 @@ dependencies {
     BASE
     COMPOSE
     DAGGER_HILT
+    GOOGLE_MAPS
     KOTLIN_STANDARD_LIBRARY
 
     COMPOSE_UI_TEST

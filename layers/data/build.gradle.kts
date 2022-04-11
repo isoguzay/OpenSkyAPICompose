@@ -15,6 +15,12 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        buildConfigField(
+            type = "String",
+            name = "APP_BASE_URL",
+            value = "\"https://opensky-network.org/api/\""
+        )
     }
 
     buildTypes {
