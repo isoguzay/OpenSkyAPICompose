@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="icao_no">Icao No : </string>
+    <string name="country">Country Name : </string>
+    <string name="button_show_flights_text">Show Flights List</string>
+    <string name="icon_flights_content_description">flight</string>
+</resources>

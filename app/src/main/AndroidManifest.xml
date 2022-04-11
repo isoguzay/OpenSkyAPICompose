@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.isoguzay.openskyapicompose">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_logo"
@@ -9,6 +11,11 @@
         android:supportsRtl="true"
         android:name=".OpenSkyApplication"
         android:theme="@style/Theme.OpenSkyAPICompose.Splash">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD_-cwlXX7BjiwBoW4qj1IiFPjRaDtZaYI" />
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -18,7 +25,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

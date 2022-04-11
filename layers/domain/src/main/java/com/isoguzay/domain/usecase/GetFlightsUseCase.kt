@@ -5,5 +5,7 @@ import com.isoguzay.data.remote.response.FlightResponseModel
 import com.isoguzay.data.remote.service.NetworkResult
 
 interface GetFlightsUseCase {
+
     suspend operator fun invoke(requestModel: CoordinatesRequestModel): NetworkResult<FlightResponseModel>
+    
 }

@@ -20,7 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
@@ -53,7 +52,7 @@ object RemoteModule {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl(Constants.API_BASE_URL)
+            .baseUrl(BuildConfig.APP_BASE_URL)
             .addCallAdapterFactory(appCallAdapterFactory)
             .addConverterFactory(gsonConverterFactory)
             .client(client)

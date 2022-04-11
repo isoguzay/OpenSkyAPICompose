@@ -39,6 +39,19 @@ object Versions {
         const val COMPOSE_CONSTRAINT_LAYOUT = "1.0.0"
     }
 
+    object Firebase {
+        const val FIREBASE = "29.2.1"
+    }
+
+    object Google {
+        const val GOOGLE_SERVICES = "4.3.10"
+    }
+
+    object GoogleMaps {
+        const val GOOGLE_MAPS_COMPOSE = "1.0.0"
+        const val GOOGLE_MAPS_SERVICES = "18.0.2"
+    }
+
     object Hilt {
         const val HILT_VERSION = "2.41"
     }

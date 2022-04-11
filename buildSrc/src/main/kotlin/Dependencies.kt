@@ -8,6 +8,7 @@ const val KOTLIN = "org.jetbrains.kotlin.android"
 const val KOTLIN_KAPT = "kotlin-kapt"
 const val KOTLIN_ANDROID = "kotlin-android"
 const val KOTLIN_PARCELIZE = "kotlin-parcelize"
+const val GOOGLE_PLAY_SERVICES = "com.google.gms.google-services"
 
 object Modules {
     object Layers {
@@ -59,6 +60,18 @@ object Libraries {
 
     object Coil {
         const val COIL_COMPOSE = "io.coil-kt:coil-compose:${Versions.Coil.COIL_VERSION}"
+    }
+
+    object Firebase {
+        const val FIREBASE = "com.google.firebase:firebase-bom:${Versions.Firebase.FIREBASE}"
+        const val FIREBASE_ANALYTICS = "com.google.firebase:firebase-analytics-ktx"
+    }
+
+    object GoogleMaps {
+        const val GOOGLE_MAPS_COMPOSE =
+            "com.google.maps.android:maps-compose:${Versions.GoogleMaps.GOOGLE_MAPS_COMPOSE}"
+        const val GOOGLE_MAPS_SERVICES =
+            "com.google.android.gms:play-services-maps:${Versions.GoogleMaps.GOOGLE_MAPS_SERVICES}"
     }
 
     object Compose {
@@ -187,6 +200,16 @@ private fun DependencyHandler.compose() {
     implementation(Libraries.Compose.VIEWMODEL)
 }
 
+private fun DependencyHandler.firebase() {
+    implementation(Libraries.Firebase.FIREBASE)
+    implementation(Libraries.Firebase.FIREBASE_ANALYTICS)
+}
+
+private fun DependencyHandler.googleMaps() {
+    implementation(Libraries.GoogleMaps.GOOGLE_MAPS_COMPOSE)
+    implementation(Libraries.GoogleMaps.GOOGLE_MAPS_SERVICES)
+}
+
 private fun DependencyHandler.hilt() {
     implementation(Libraries.Hilt.HILT_ANDROID)
     kapt(Libraries.Hilt.HILT_ANDROID_COMPILER)
@@ -219,6 +242,12 @@ val DependencyHandler.COMPOSE
 
 val DependencyHandler.DAGGER_HILT
     get() = hilt()
+
+val DependencyHandler.FIREBASE
+    get() = firebase()
+
+val DependencyHandler.GOOGLE_MAPS
+    get() = googleMaps()
 
 val DependencyHandler.KOTLIN_STANDARD_LIBRARY
     get() = implementation(Libraries.Kotlin.STANDARD_LIB)
@@ -311,6 +340,10 @@ val DependencyHandler.LAYERS_UI
 
 private fun DependencyHandler.implementation(depName: Any) {
     add("implementation", depName)
+}
+
+private fun DependencyHandler.implementationPlatform(depName: Any) {
+    add("implementation platform", depName)
 }
 
 private fun DependencyHandler.testImplementation(depName: Any) {

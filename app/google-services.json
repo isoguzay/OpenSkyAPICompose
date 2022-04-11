@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "921542920905",
+    "project_id": "openskyapicompose",
+    "storage_bucket": "openskyapicompose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921542920905:android:f9bdbd0b8c1ac839589b18",
+        "android_client_info": {
+          "package_name": "com.isoguzay.openskyapicompose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921542920905-tasj4cvfjn8bh4kekuh9e800t49jskaa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.isoguzay.openskyapicompose",
+            "certificate_hash": "ef9005b76d8255a6e6066dcc36eea7faee4b1b1a"
+          }
+        },
+        {
+          "client_id": "921542920905-3s1j1345vu1m8qaprrm9j01kfos0h8lo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0UPlqp9B4tP95D7PPkjDpEnWtslfeYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921542920905-3s1j1345vu1m8qaprrm9j01kfos0h8lo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
