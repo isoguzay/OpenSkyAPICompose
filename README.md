@@ -72,12 +72,12 @@ Go to the [Releases](https://github.com/isoguzay/OpenSkyAPICompose/releases) to 
 
 ### Services
 
-- [Open SKY API Service](https://openskynetwork.github.io/opensky-api/rest.html) - Open Sky API
-- [Google Maps Compose](https://developers.google.com/maps/documentation/android-sdk/maps-compose) - Google Maps with Jetpack Compose
+- [Open SKY API Service](https://openskynetwork.github.io/opensky-api/rest.html) - Open Sky API ✈️
+- [Google Maps Compose](https://developers.google.com/maps/documentation/android-sdk/maps-compose) - Google Maps with Jetpack Compose 🌍
 
 ## How to get the Google MAPS API key?
 
-Register [here](https://developers.google.com/maps/documentation/android-sdk/maps-compose) and get your own API key for your builds.
+Register [here](https://developers.google.com/maps/documentation/android-sdk/maps-compose) and get your own Google Maps API key for your builds.
 
 ## ❤️ Find this repository useful?
 
