@@ -119,7 +119,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
                                     if (expanded) {
                                         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.modal_bottom_sheet_spacer)))
                                         Text(
-                                            text = ("${stringResource(id = R.string.icao_no)} ${flightStatesList[index].icao24}, \n" +
+                                            text = ("${stringResource(id = R.string.icao_no)} ${flightStatesList[index].icao24} \n" +
                                                     "${stringResource(id = R.string.country)} ${flightStatesList[index].origin_country}"),
                                         )
                                     }
